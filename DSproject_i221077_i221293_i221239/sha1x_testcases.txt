@@ -1,0 +1,66 @@
+
+
+TEST(sha1x, test1) {
+
+    std::string val = "abc";
+    std::string ans = sha1x(val);
+    std::cout << "sha1('abc'):" << ans << std::endl;
+
+    EXPECT_EQ("a9993e364706816aba3e25717850c26c9cd0d89d", ans);
+
+}
+
+TEST(sha1x, test2) {
+
+    std::string val = "grape";
+    std::string ans = sha1x(val);
+    std::cout << "sha1('grape'):" << ans << std::endl;
+
+    EXPECT_EQ("bc8a2f8cdedb005b5c787692853709b060db75ff", ans);
+}
+
+TEST(sha1x, test3) {
+
+    std::string val = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq";
+    std::string ans = sha1x(val);
+    std::cout << "sha1('grape'):" << ans << std::endl;
+
+    EXPECT_EQ("84983e441c3bd26ebaae4aa1f95129e5e54670f1", ans);
+}
+
+TEST(sha1x, test4) {
+
+    std::string val = "31";
+    std::string ans = sha1x(val);
+    std::cout << "sha1('31'):" << ans << std::endl;
+
+    EXPECT_EQ("632667547e7cd3e0466547863e1207a8c0c0c549", ans);
+}
+
+TEST(sha1x, test5) {
+
+    std::string val = "0";
+    std::string ans = sha1x(val);
+    std::cout << "sha1('0'):" << ans << std::endl;
+
+    EXPECT_EQ("b6589fc6ab0dc82cf12099d1c2d40ab994e8410c", ans);
+}
+
+TEST(sha1x, test6) {
+
+    std::string val = "G:\\Tauha - FAST\\t.smstr3\\Data Structures\\ds_project23\\hashing_simulation";
+    std::string ans = sha1x(val);
+    std::cout << "sha1('G:\\Tauha - FAST\\t.smstr3\\Data Structures\\ds_project23\\hashing_simulation'):\n" << ans << std::endl;
+
+    EXPECT_EQ("4519a122bff16436130ead07c0b84846153e4152", ans);
+}
+
+TEST(sha1x, mastertest) {
+
+    std::string val = "";
+    for (int i = 0; i < 1000000; val += 'a', i++);
+    std::string ans = sha1x(val);
+    std::cout << "sha1('a'x1,000,000): " << ans << std::endl;
+
+    EXPECT_EQ("34aa973cd4c4daa4f61eeb2bdbad27316534016f", ans);
+}
